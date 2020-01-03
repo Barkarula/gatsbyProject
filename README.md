@@ -4,7 +4,14 @@ robotrade courses (unofficial)
 RoboTrade Ltd. - новый лицензированный брокер в составе RoboForex
 	Robot trade development | trading robot development
 
-ceep calm autotrade
+all courses in one place
+keep calm autotrade
+robot trade courses
+	https://www.forexboat.com/our-courses/
+.
+gatsby deploy github pages
+netlify
+hipsum
 
 node -v 12.14.0 lts -> 8.0.0 (troubles)
 
@@ -17,7 +24,7 @@ http://localhost/robotradecourses.io/wp-json/wp/v2/pages
 ### workflow
 
 	git add .
-	git commit -m '0.0.1 version'
+	git commit -m '0.0.2 version'
 	git push
 
 gatsby
@@ -73,3 +80,5 @@ hot key = ctrl + space
 6. quering wp data with graphql within gatsby
 
 pages > index.js > import {graphql} ...
+
+7. Generating gatsby pages from wp
