@@ -24,7 +24,7 @@ http://localhost/robotradecourses.io/wp-json/wp/v2/pages
 ### workflow
 
 	git add .
-	git commit -m '0.0.2 version'
+	git commit -m '0.0.3 version'
 	git push
 
 gatsby
