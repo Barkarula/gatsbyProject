@@ -1,0 +1,649 @@
+@import vars.sass
+@import reset.sass
+@import media-mixins.sass
+    
+html
+    font-family: "Source Sans Pro", "Futura", Helvetica, "Roboto", Arial, sans-serif
+    
+::selection
+    background: $lightblue
+
+*
+    -webkit-tap-highlight-color: $lightblue
+    -webkit-font-smoothing: antialiased
+    -moz-font-smoothing: grayscale
+    letter-spacing: 0.2px
+
+@keyframes "blink"
+  from, to 
+    color: transparent
+  50% 
+    color: black
+
+@keyframes "heading-bg"
+  0%
+    width: 0%
+  100%
+    width: 100%
+
+@keyframes "mouse-down" 
+    0%
+        transform: "translateY(3px)"
+    100%
+        transform: "translateY(0px)"
+
+@keyframes "ticker"
+    from
+        left: 100%
+    to
+        left: -120%
+    
+.mouse-down
+    +sm()
+        display: none
+    width: 30px
+    position: absolute
+    left: 50%
+    bottom: $border-padding
+    cursor: pointer
+    will-change: transform
+    transition: all .2s ease-in-out
+    animation: mouse-down .2s ease-in-out 1s infinite
+    &:hover
+        transform: translateY(3px)
+
+.welcome
+    background-color: $lightgray
+    // background: darkgray
+    min-height: 100vh
+    z-index: 1
+    position: relative
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    &__footer
+        display: flex
+        justify-content: space-between
+        align-items: flex-end
+        padding: $border-padding 1.2 * $border-padding
+        z-index: 15
+        width: 100%
+        color: white
+.contacts-icons
+    display: flex
+    align-items: center
+    justify-content: flex-start
+.contact-icon
+    width: 30px
+    height: 30px
+    &__img
+        width: 100%
+        height: 100%
+    &:not(:first-child)
+        margin-left: 17px
+.contact
+    & > &__value:after
+        content: ''
+        position: absolute
+        bottom: -5px
+        animation: lining .3s ease-in-out
+        left: 0
+        height: 1px
+        width: 0
+        background: transparent
+        transition: all .1s ease-in-out
+    &:hover > &__value:after
+            width: 100%
+            background: rgba(255,255,255,0.4)
+    &:not(:first-child)
+        margin-top: 30px   
+    &__heading
+        font-weight: bold
+        font-size: 18px
+    &__value
+        font-size: 16px
+        font-family: "Montserrat"
+        display: inline-block
+        margin-top: 10px
+        letter-spacing: 0.4px
+        position: relative
+
+.blog-link
+    width: 100%
+    will-change: auto
+    padding: $border-padding
+    display: flex
+    justify-content: space-between
+    +sm()
+        text-align: center
+    &__container
+        z-index: 2
+        align-items: center
+        will-change: transform
+        justify-content: center
+        display: inline-block
+        transition: .6s ease
+        &:hover
+            transform: translateY(5px)
+    &__text
+        color: $darkblue
+        font-size: 22px
+        position: relative
+        top: -6px
+        text-decoration: underline
+.wavebg
+    background-image: url('../images/waves_group.svg')
+    background-size: cover
+    position: absolute
+    bottom: 0
+    width: 100%
+    height: 50vh
+.heading
+    font-size: 56px
+    transition: all .3s ease-in-out
+    font-weight: bold
+    position: relative
+    display: inline-block
+    +sm()
+        font-size: 40px
+.card
+    +sm()
+        padding: 40px 30px
+        margin: 0 10px
+    +md()
+        margin: 0 20px
+    max-width: 740px
+    z-index: 100
+    will-change: transform
+    padding: 60px 100px
+    background-color: white
+    border: 1px solid #F4F4F4
+    border-radius: 8px
+    margin: 0 auto
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.05)
+    &__heading
+        position: relative
+    &__symbol
+        font-size: 64px
+        position: absolute
+        top: 0
+        left: -50px
+        animation: 1.5s blink ease-in 5
+        +sm()
+            display: none
+    &__subheading
+        font-size: 40px
+        +sm()
+            font-size: 30px
+        color: rgba(0,0,0,.81)
+        margin-top: $border-padding
+    &__buttons-container
+        margin-top: 1.5 * $border-padding
+    &__desc
+        margin-top: 1.5 * $border-padding
+        font-size: 16px
+        line-height: 1.75
+.heading
+    &:after
+        animation: heading-bg 1.5s ease-in-out 2s forwards
+        display: block
+        content: ''
+        // width: 100%
+        height: 30px
+        background: rgba(101, 148, 240, 0.18)
+        position: absolute
+        bottom: -5px
+.buttons
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    +sm()
+        flex-wrap: wrap
+        // justify-content: center
+        & > *
+            margin: 10px
+.button
+    padding: 10px 25px
+    &--small
+        padding: 8px 20px
+    +sm()
+        padding: 8px 20px
+    background-color: $primary
+    box-shadow: 0px 0px 25px rgba(71, 75, 232, 0.52)
+    border-radius: 5px
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    border: 0
+    overflow: hidden
+    color: white
+    position: relative
+    transition: all .6s ease
+    &:active
+        box-shadow: 0px 10px 50px rgba(71, 75, 232, 0.42)
+    &:active:after
+        transform: skewX(-42deg) translateX(210px)
+        transition: all .7s ease
+    &:hover
+        box-shadow: 0px 10px 50px rgba(71, 75, 232, 0.42)
+    &:hover:after
+        transform: skewX(-42deg) translateX(210px)
+        transition: all .7s ease
+    &:after
+        position: absolute
+        content: ""
+        width: 40px
+        bottom: 0
+        background: linear-gradient(-92deg,hsla(0,0%,100%,.2),hsla(0,0%,100%,.2))
+        height: 120%
+        left: -3px
+        transform: skewX(-42deg) translateX(-50px)
+        z-index: 1
+        will-change: transform
+    &:not(:first-child)
+        margin-left: 25px
+        +sm()
+            margin-left: 10px
+    &__icon
+        width: 21px
+        margin-right: 10px
+    &__text
+        font-size: 18px
+        color: white
+    &--secondary
+        color: $darkblue
+        &:hover:after
+        background: rgba(26,17,69,0.2)
+        background: white
+        box-shadow: 0px 0px 25px rgba(0, 4, 146, 0.24)
+        &:hover
+            box-shadow: 0px 10px 50px rgba(0, 4, 146, 0.24)
+        & > .button__text
+            color: $primary
+        &:after
+            background: rgba(0, 4, 146, 0.04)
+.ticker__container
+    font-size: 18vw
+    z-index: 1
+    will-change: opacity
+    position: absolute
+    top: 30%
+    overflow: hidden
+    width: 100vw
+.ticker
+    animation: ticker 30s linear infinite forwards
+    font-weight: bold
+    background: linear-gradient(to bottom, rgba(13,0,74,0.13) 0%, rgba(255,255,255,0.02) 85%, rgba(255,255,255,0) 100%)
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    width: 200%
+    left: -3%
+    position: relative
+
+@keyframes lining
+    0%
+        width: 0%
+    100%
+        width: 100%
+
+@keyframes waving
+  0%
+    transform: translateX(0) scaleY(1)
+  
+  50% 
+    transform: translateX(-25%) scaleY(0.9)
+  
+  100% 
+    transform: translateX(-50%) scaleY(1)
+
+@keyframes heart 
+    0%
+        transform: scale(.75)
+    20%
+        transform: scale(1)
+    40%
+        transform: scale(.75)
+    60%
+        transform: scale(1)
+    80%
+        transform: scale(.75)
+    100%
+        transform: scale(.75)
+
+.language
+    display: inline-block
+    font-weight: bold
+    font-size: 18px
+    color: $darkblue
+    &__delimiter
+        margin: 0 7px
+        bottom: 2px
+        position: relative
+    position: relative
+    cursor: pointer
+    &--active.language
+        transition: all .1s ease-in-out
+        &:after
+            content: ''
+            position: absolute
+            bottom: -2px
+            animation: lining .3s ease-in-out
+            left: 0
+            height: 2px
+            width: 100%
+            background: $darkblue
+            transition: all .1s ease-in-out
+    &:after
+        content: ''
+        position: absolute
+        bottom: -2px
+        animation: lining .2s ease-in-out
+        left: 0
+        height: 2px
+        width: 0%
+        background: transparent
+        transition: all .2s ease-in-out
+    &:hover:after
+        width: 100%
+        background: $darkblue
+.skills
+    min-height: 60vh
+    background: #f6f6f6
+    position: relative
+    &__bg-text
+        position: absolute
+        top: 10%
+        left: 6%
+        font-size: 18vw
+        font-weight: bold
+        z-index: 3
+        background: linear-gradient(to bottom, rgba(13,0,74,0.15) 0%, rgba(13,0,74,0.04) 85%, rgba(13,0,74,0) 100%)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+    &__wave
+        z-index: 1
+        height: auto
+        width: 100%
+        margin-top: -1px
+.skills
+    &__container
+        padding-top: 20vh
+    &__inner
+        display: flex
+        padding: 4.5vh 0
+        // overflow: hidden
+        overflow-x: scroll
+        overflow-y: hidden
+        white-space: nowrap
+        cursor: grab
+        scrollbar-width: none
+        &::-webkit-scrollbar
+            display: none
+        // overflow-x: scroll
+        // scroll-snap-type: x mandatory
+        // scroll-padding: 30vw
+        // scroll-snap-stop: always
+.skill
+    padding: 20px 30px
+    scroll-snap-align: start
+    margin-left: 50px
+    &:last-child
+        margin-right: 50px
+    background: #fff
+    min-width: 160px
+    display: flex
+    justify-content: center
+    z-index: 5
+    border-radius: 5px
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.06)
+    &__img
+        width: 100%
+        height: 100px
+        object-fit: contain
+    &__heading
+        display: block
+        margin-top: 20px
+        font-size: 20px
+        font-weight: bold
+        white-space: normal
+    &__desc
+        display: block
+        margin-top: 8px
+        color: rgba(0,0,0,0.5)
+        font-size: 14px
+    &__inner
+        width: 100%
+.works
+    min-height: 100vh
+    padding-left: 5%
+    padding-right: 5%
+    padding-bottom: 100px
+    // overflow-x: hidden
+    position: relative
+    &__wave
+        position: absolute
+        left: -70px
+        top: 300px
+        width: auto
+        z-index: -1
+        height: 90px
+        +sm()
+            height: 50px
+    &__text-block
+        font-family: "Montserrat"
+.desc
+    color: rgba(0,0,0,0.5)
+    margin-top: 20px
+    line-height: 1.6
+    font-size: 16px
+.grid
+    display: flex
+    flex-wrap: wrap
+.cols
+    flex-grow: 5
+    flex-shrink: 2
+    flex-basis: auto
+    display: grid
+    grid-column-gap: 25px
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto))
+.work
+    position: relative
+    background: white
+    border-radius: 5px
+    margin-top: 25px
+    background-size: cover
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25)
+    &__col
+        // z-index: -1
+        position: relative
+        top: 0
+    &__inner
+        z-index: 2
+        padding: 20px
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+    &__img
+        border-radius: 5px
+        max-width: 100%
+        height: auto
+    &__overlay
+        position: absolute
+        border-radius: 5px
+        height: 100%   
+        width: 100%
+        background: rgba(255,255,255,0.87)
+    &__buttons-container
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__heading
+        font-size: 22px
+        +md()
+            font-size: 20px
+        +sm()
+            font-size: 20px
+        margin-bottom: 25px
+        position: relative
+        line-height: 1.3
+        padding: 0 5px
+        &:after
+            content: ''
+            position: absolute
+            bottom: -5px
+            left: 5px
+            width: 30%
+            height: 2px
+            background: rgba(0,0,0,0.2)
+        &--light
+            color: white
+            &:after
+                content: ''
+                position: absolute
+                bottom: -5px
+                left: 5px
+                width: 30%
+                height: 2px
+                background: rgba(255,255,255,0.4)
+.grid__item
+    &-left
+        flex: 2 2 250px
+        padding-right: 30px
+    &-right
+        flex-grow: 5
+        flex-shrink: 2
+        flex-basis: 500px
+.footer
+    z-index: 5
+    font-family: "Montserrat"
+    &__col
+        display: flex
+        flex-direction: column
+        &--first
+            justify-content: space-between
+            align-items: center
+        &--second
+            justify-content: flex-end
+            align-items: center
+        &--third
+            justify-content: flex-end
+            align-items: center
+    &__cols
+        padding: 40px 12vw
+        background: radial-gradient(407.63px at 50% 50%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%), #202020
+        color: rgba(255,255,255,0.8)
+        display: grid
+        grid-gap: 30px
+        grid-template-columns: repeat(auto-fit, minmax(200px, auto))
+    &__contact
+        font-size: 18px
+        margin-top: 20px
+        position: relative
+        &:after
+            content: ''
+            position: absolute
+            bottom: -5px
+            animation: lining .3s ease-in-out
+            left: 0
+            height: 1px
+            width: 0
+            background: transparent
+            transition: all .1s ease-in-out
+        &:hover:after
+            width: 100%
+            background: rgba(255,255,255,0.4)
+    &__link
+        text-align: center
+        font-size: 16px
+        margin-top: 10px
+        &--main
+            margin-top: 20px
+            transition: all .15s ease-in
+            font-size: 18px
+            display: inline-block
+            padding-bottom: 2px
+            border-bottom: 2px solid rgba(255,255,255,0.5)
+            &:hover
+                border-bottom-color: transparent
+.copyright
+    background: #1E355F
+    text-align: center
+    padding: 10px 0
+    &__text
+        color: white
+        font-size: 13px
+.love
+    display: inline-block
+    color: red
+    opacity: 0.8
+    animation: heart 1.5s linear 0s infinite
+.not-found
+    height: 100vh
+    width: 100vw
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    &__img
+        max-width: 320px
+        height: auto
+    &__text
+        font-size: 48px
+        text-align: center
+        color: $primary
+.go-back
+    margin-top: 30px
+    font-size: 20px
+    color: $darkblue
+    padding-bottom: 2px
+    border-bottom: 2px solid $darkblue
+.link-with-border
+    color: $primary
+    margin-top: 30px
+    cursor: pointer
+    font-weight: 500
+    font-size: 18px
+    text-decoration: underline
+    text-decoration-color: $lightblue
+    transition: all .2s ease-in-out
+    transform-origin: left
+    &:hover
+        color: darken($primary, 50%)
+        text-decoration-color: darken($lightblue, 50%)
+.blog
+    &-section
+        padding-top: 230px
+        padding-bottom: 120px
+    &__link
+        font-size: 164px
+        background: linear-gradient(to bottom, rgba(13, 0, 74, 0.23) 0%, rgba(50, 100, 100, 0.1) 85%)
+        background-clip: text
+        font-weight: 900
+        will-change: transform
+        -webkit-text-fill-color: transparent
+        transition: transform .15s ease-in-out
+        &:hover
+            transform: scale(1.15)
+        +sm()
+            font-size: 72px
+    &__desc
+        margin-top: 20px
+        font-size: 20px
+        font-family: "Montserrat"
+        padding: 0 16px
+        +sm()
+            font-size: 16px
+    &__inner
+        display: flex
+        justify-content: center
+        align-content: center
+        flex-direction: column
+        text-align: center
+        overflow: hidden

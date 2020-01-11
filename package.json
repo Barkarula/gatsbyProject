@@ -1,0 +1,64 @@
+{
+  "name": "gatsby-starter-hello-world",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^13.4.0",
+    "@emotion/core": "^10.0.9",
+    "axios": "^0.18.0",
+    "dotenv": "^8.1.0",
+    "fast-average-color": "^5.2.0",
+    "gatsby": "^2.2.4",
+    "gatsby-image": "^2.0.29",
+    "gatsby-plugin-google-analytics": "^2.0.18",
+    "gatsby-plugin-google-tagmanager": "^2.0.12",
+    "gatsby-plugin-i18n": "^1.0.1",
+    "gatsby-plugin-manifest": "^2.0.15",
+    "gatsby-plugin-nprogress": "^2.0.7",
+    "gatsby-plugin-offline": "^2.0.22",
+    "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-remove-console": "0.0.2",
+    "gatsby-plugin-sass": "^2.0.8",
+    "gatsby-plugin-sharp": "^2.0.19",
+    "gatsby-plugin-sitemap": "^2.0.11",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-source-contentful": "^2.1.28",
+    "gatsby-source-filesystem": "^2.0.27",
+    "gatsby-transformer-sharp": "^2.1.13",
+    "intersection-observer": "^0.5.1",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-helmet": "^5.2.0",
+    "react-intersection-observer": "^8.22.3",
+    "react-intl": "^2.8.0",
+    "react-spinkit": "^3.0.0",
+    "react-spinners": "^0.5.3",
+    "react-spring": "^8.0.7",
+    "react-typing-animation": "^1.6.2",
+    "react-typist": "^2.0.5",
+    "react-visibility-sensor": "^5.0.2",
+    "react-yandex-metrika": "^2.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "gh-pages": "^2.1.1"
+  }
+}

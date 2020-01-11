@@ -1,0 +1,30 @@
+// Small tablets and large smartphones (landscape view)
+$screen-sm-max: 576px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+// Small devices
+=sm 
+   @media (max-width: #{$screen-sm-max}) 
+       @content
+
+// Medium devices
+=md 
+   @media (min-width: #{$screen-sm-max}) and (max-width: #{$screen-lg-min})
+       @content
+
+
+// Large devices
+=lg 
+   @media (min-width: #{$screen-lg-min}) and (max-width: #{$screen-xl-min})
+       @content
+   
+
+// Extra large devices
+=xl 
+   @media (min-width: #{$screen-xl-min}) 
+       @content
